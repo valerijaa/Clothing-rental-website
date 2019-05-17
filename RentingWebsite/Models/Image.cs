@@ -14,6 +14,8 @@ namespace RentingWebsite.Models
     
     public partial class Image
     {
+        internal readonly byte[] Image;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Image()
         {

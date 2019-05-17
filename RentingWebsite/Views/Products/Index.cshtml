@@ -1,18 +1,17 @@
 ﻿@model IEnumerable<RentingWebsite.Models.Product>
 
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Shop</h2>
+<h2>Index</h2>
 
-@*<p>
+<p>
     @Html.ActionLink("Create New", "Create")
-</p>*@
-@*<table class="table">*@
-    @*<tr>
+</p>
+<table class="table">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -29,10 +28,10 @@
             @Html.DisplayNameFor(model => model.Image.ImageTitle)
         </th>
         <th></th>
-    </tr>*@
+    </tr>
 
-
-    @*<tr>
+@foreach (var item in Model) {
+    <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
@@ -53,35 +52,7 @@
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
         </td>
-    </tr>*@
-@*</table>*@
+    </tr>
+}
 
-
-
-
-    <!--Products-->
-    <div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="card col-sm-4">
-
-           
-            @*<img src="/content/Images/@Html.DisplayFor(modelItem => item.Image.ImageURL)" alt="@item.Image.ImageTitle" />*@
-            <p>@Html.DisplayFor(modelItem => item.Title)</p>
-            <p>@Html.DisplayFor(modelItem => item.Price)</p>
-            @*<p>@Html.DisplayFor(modelItem => item.FitProduct.FitProductTitle)</p>*@
-        </div>
-    }
-
-    </div>
-
-
-    
-
-
-
-
-
-
-
-
+</table>

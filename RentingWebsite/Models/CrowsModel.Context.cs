@@ -36,5 +36,4 @@ namespace RentingWebsite.Models
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Type> Types { get; set; }
-    }
-}
+    }}
