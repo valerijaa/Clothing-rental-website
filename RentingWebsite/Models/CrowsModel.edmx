@@ -4,7 +4,23 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RentingWebsiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RentingWebsiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RentingWebsite.dbo.Article' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Details" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Fit" Type="nvarchar" MaxLength="50" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ImageArticle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="ColorId" />
@@ -80,6 +96,11 @@
           <Property Name="FitProductId" Type="int" />
           <Property Name="Price" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ImageId" Type="int" />
+          <Property Name="ImageProduct" Type="nvarchar" MaxLength="50" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ProductColor">
           <Key>
@@ -309,6 +330,19 @@
           <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Article" EntityType="Self.Article" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Article].[ArticleId] AS [ArticleId], 
+    [Article].[Title] AS [Title], 
+    [Article].[Details] AS [Details], 
+    [Article].[Fit] AS [Fit], 
+    [Article].[EventType] AS [EventType], 
+    [Article].[Price] AS [Price], 
+    [Article].[ImageArticle] AS [ImageArticle], 
+    [Article].[Color] AS [Color], 
+    [Article].[Size] AS [Size]
+    FROM [dbo].[Article] AS [Article]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Invoices__Custom__14270015" Association="Self.FK__Invoices__Custom__14270015">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Invoices" EntitySet="Invoices" />
@@ -362,8 +396,7 @@
             <End Role="ProductType" EntitySet="ProductType" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RentingWebsiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -458,6 +491,11 @@
           <NavigationProperty Name="EventTypes" Relationship="Self.ProductEventType" FromRole="Product" ToRole="EventType" />
           <NavigationProperty Name="Sizes" Relationship="Self.ProductSize" FromRole="Product" ToRole="Size" />
           <NavigationProperty Name="Types" Relationship="Self.ProductType" FromRole="Product" ToRole="Type" />
+          <Property Name="ImageProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EventType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -609,7 +647,22 @@
             <End Role="Type" EntitySet="Types" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="Articles" EntityType="RentingWebsiteModel.Article" />
         </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Fit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EventType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ImageArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -691,6 +744,11 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="RentingWebsiteModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Details" ColumnName="Details" />
@@ -759,6 +817,21 @@
               <ScalarProperty Name="ProductId" ColumnName="ProductId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="RentingWebsiteModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ImageArticle" ColumnName="ImageArticle" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="Fit" ColumnName="Fit" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

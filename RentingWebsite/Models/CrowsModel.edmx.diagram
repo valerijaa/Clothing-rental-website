@@ -25,6 +25,7 @@
         <AssociationConnector Association="RentingWebsiteModel.ProductEventType" ManuallyRouted="false" />
         <AssociationConnector Association="RentingWebsiteModel.ProductSize" ManuallyRouted="false" />
         <AssociationConnector Association="RentingWebsiteModel.ProductType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RentingWebsiteModel.Article" Width="1.5" PointX="7.375" PointY="7.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

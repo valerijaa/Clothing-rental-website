@@ -209,12 +209,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Article.cs">
+      <DependentUpon>CrowsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Color.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
@@ -236,6 +240,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataConnector.cs" />
     <Compile Include="Models\EventType.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
@@ -255,6 +260,8 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Size.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
@@ -268,11 +275,67 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PagingInfo.cs" />
+    <Compile Include="ViewModels\ProductsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Banner.png" />
+    <Content Include="Content\Images\Checkout\T66505002_284_lookbook2.jpg" />
+    <Content Include="Content\Images\Dress1.png" />
+    <Content Include="Content\Images\Dress5.png" />
+    <Content Include="Content\Images\Impact page\Group 31.jpg" />
+    <Content Include="Content\Images\Impact page\T66505002_284_detail2.jpg" />
+    <Content Include="Content\Images\Impact page\T66505002_284_main.jpg" />
+    <Content Include="Content\Images\Product page ink\T-1.jpg" />
+    <Content Include="Content\Images\Product page ink\T-2.jpg" />
+    <Content Include="Content\Images\Product page ink\T-3.jpg" />
+    <Content Include="Content\Images\Product page ink\T-4.jpg" />
+    <Content Include="Content\Images\Product page ink\T66505002_284_back.jpg" />
+    <Content Include="Content\Images\Product page ink\T66505002_284_detail1.jpg" />
+    <Content Include="Content\Images\Product page ink\T66505002_284_detail2.jpg" />
+    <Content Include="Content\Images\Product page ink\T66505002_284_lookbook2.jpg" />
+    <Content Include="Content\Images\Product page ink\T66505002_284_main.jpg" />
+    <Content Include="Content\Images\Product page white\T-1.jpg" />
+    <Content Include="Content\Images\Product page white\T-2.jpg" />
+    <Content Include="Content\Images\Product page white\T-3.jpg" />
+    <Content Include="Content\Images\Product page white\T66505002_090_back.jpg" />
+    <Content Include="Content\Images\Product page white\T66505002_090_suitlook.jpg" />
+    <Content Include="Content\Images\S41939018Z_050_lookbook2.jpg" />
+    <Content Include="Content\Images\S63235017_62C_lookbook2.jpg" />
+    <Content Include="Content\Images\S66441001_09S_lookbook2.jpg" />
+    <Content Include="Content\Images\S66458003_X13_lookbook2.jpg" />
+    <Content Include="Content\Images\S66467005_2K6_lookbook2.jpg" />
+    <Content Include="Content\Images\S67078003_21U_lookbook2.jpg" />
+    <Content Include="Content\Images\S67093001_2Y3_lookbook2.jpg" />
+    <Content Include="Content\Images\S67132001_A41_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S41939018Z_050_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S63235017_62C_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S66441001_09S_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S66458003_X13_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S66467005_2K6_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S67078003_21U_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S67093001_2Y3_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop dresses\S67132001_A41_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop suits\T64533020_284_suit.jpg" />
+    <Content Include="Content\Images\Shop suits\T66484003_M02_suit.jpg" />
+    <Content Include="Content\Images\Shop suits\T66501003_208_suit.jpg" />
+    <Content Include="Content\Images\Shop suits\T66505002_090_suitlook.jpg" />
+    <Content Include="Content\Images\Shop suits\T66519001_050_suit.jpg" />
+    <Content Include="Content\Images\Shop suits\T66519001_2M5_suit.jpg" />
+    <Content Include="Content\Images\Shop suits\T66519001_M04_lookbook2.jpg" />
+    <Content Include="Content\Images\Shop suits\T66543001_284_suit.jpg" />
+    <Content Include="Content\Images\Shopping cart\T66505002_284_lookbook2.jpg" />
+    <Content Include="Content\Images\T64533020_284_suit.jpg" />
+    <Content Include="Content\Images\T66484003_M02_suit.jpg" />
+    <Content Include="Content\Images\T66501003_208_suit.jpg" />
+    <Content Include="Content\Images\T66505002_090_suitlook.jpg" />
+    <Content Include="Content\Images\T66519001_050_suit.jpg" />
+    <Content Include="Content\Images\T66519001_2M5_suit.jpg" />
+    <Content Include="Content\Images\T66519001_M04_lookbook2.jpg" />
+    <Content Include="Content\Images\T66543001_284_suit.jpg" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -315,6 +378,12 @@
     <Content Include="Models\CrowsModel.edmx.diagram">
       <DependentUpon>CrowsModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Images\Impact page\_DS_Store" />
+    <Content Include="Content\Images\Product page ink\_DS_Store" />
+    <Content Include="Content\Images\Product page white\_DS_Store" />
+    <Content Include="Content\Images\Shop dresses\_DS_Store" />
+    <Content Include="Content\Images\Shop suits\_DS_Store" />
+    <Content Include="Content\Images\Shopping cart\_DS_Store" />
     <None Include="Properties\PublishProfiles\RentingWebsite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -346,6 +415,9 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\Type.cshtml" />
+    <Content Include="Views\Shop\Price.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
