@@ -1,0 +1,16 @@
+﻿<div id="filteringcontainer">
+    @using (Html.BeginForm("Filtered", "Shop", FormMethod.Get))
+    {
+        @Html.Hidden("colors")
+        @Html.Hidden("types")
+        @Html.Hidden("sizes")
+        @Html.Hidden("fits")
+
+        <ul id="type-options"></ul>
+        <ul id="color-options"></ul>
+        <ul id="size-options"></ul>
+        <ul id="fit-options"></ul>
+
+        <button type="submit">Search</button>
+    }
+</div>
