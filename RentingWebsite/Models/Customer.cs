@@ -26,7 +26,7 @@ namespace RentingWebsite.Models
         public string Address { get; set; }
         public Nullable<int> Zip { get; set; }
 
-        
+        [Required]
         public string Username { get; set; }
 
         [Required]
