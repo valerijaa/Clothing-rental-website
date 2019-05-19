@@ -1,0 +1,25 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Nav";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--If the current link value matches the SelectedCategory value, use Bootstrap to cause the button to be highlighted-->
+<!--If the the SelectedCategory value is null that class is added to the Home ActionLink-->
+<!-- apply Bootstrap classes to style the links as large buttons-->
+<!--supply an object to both the ActionLink and RouteLink helper methods that specifies values for attributes on the elements that are created-->
+@foreach (var link in Model)
+{
+    @Html.RouteLink(link, new
+{
+    controller = "Shop",
+    action = "Index",
+    category = link,
+    page = 1
+}, new
+{
+    @class = "btn btn-block btn-default btn-lg"
+    + (link == ViewBag.SelectedCategory ? " btn-primary" : "")
+})
+}

@@ -13,67 +13,67 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
-
+ 
 
 
     <div class="container-fluid navbar navbar-fixed-top ">
-        <div class="inner">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("VAMA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="inner">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("VAMA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
+                        <li><a href="@Url.Action("Index", "Cart")"><i class="fas fa-2x fa-shopping-cart"></i></a></li>
+                        @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav  navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
-                    <li><a href="@Url.Action("Index", "Cart")"><i class="fas fa-2x fa-shopping-cart"></i></a></li>
-                    @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
-                </ul>
-            </div>
-        </div>
     </div>
 
-    <div class="row">
-        <div class="inner">
-            @RenderBody()
+         <div class="row">
+             <div class="inner">
+                 @RenderBody()
+             </div>
+         </div>
+                
+       
+
+  
+        <div class="row closing">
+            <div class="inner">
+
+                <div class="col-sm-4">
+                    <h2>Presentation</h2>
+                    <ul>
+                        <li>Customers</li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <h2>Information</h2>
+                    <ul>
+                        <li>Customers</li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <h2>Let's get social</h2>
+                    <ul>
+                        <li>Customers</li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-
-
-
-
-    <div class="row closing">
-        <div class="inner">
-
-            <div class="col-sm-4">
-                <h2>Presentation</h2>
-                <ul>
-                    <li>Customers</li>
-                    <li>Products</li>
-                </ul>
-            </div>
-
-            <div class="col-sm-4">
-                <h2>Information</h2>
-                <ul>
-                    <li>Customers</li>
-                    <li>Products</li>
-                </ul>
-            </div>
-
-            <div class="col-sm-4">
-                <h2>Let's get social</h2>
-                <ul>
-                    <li>Customers</li>
-                    <li>Products</li>
-                </ul>
-            </div>
-        </div>
-    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

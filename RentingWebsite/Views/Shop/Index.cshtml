@@ -1,4 +1,5 @@
 ﻿@using RentingWebsite.Models
+
 @model IEnumerable<RentingWebsite.Models.Product>
 
 
@@ -6,51 +7,59 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<ul>
+    @foreach (var item in Model)
+    {
+        @*<li>@Html.ActionLink(@item.Title, "Price", "Shop", new object { category = @item.Category, null })</li>*@
+    @*<li>@Html.ActionLink(@item.Title, "Price", "Shop", new object { category = @item.Category, null })</li>*@
+}
+</ul>
 
 <h2>Index</h2>
+<p>@Html.ActionLink("Menu", "Nav")</p>
 <p>@Html.ActionLink("All", "Index")</p>
 <p>@Html.ActionLink("Price", "Price")</p>
 <p>@Html.ActionLink("Type", "Type")</p>
 
+<!--View Cart button-->
+@*@using (Html.BeginForm("Index", "Cart"))
+{
+    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+    <input type="submit" class="btn btn-success" value="View Cart" />
+}*@
 
 @foreach (var item in Model)
 {
     <div class="col-sm-4">
         <div class="products">
-            
-            @*<img src="data:image/jpg;base64,@System.Convert.ToBase64String(item.Image.ImageURL)" width="80" height="80" />
-
-            <img src="item.ImageProduct" />
-
-            <img src="~/Content/Images/item.Image.ImageURL" />
-            <img src="~/Content/Images/item.ImageProduct" />*@
-          
-            <img src="@Url.Content(item.ImageProduct)" />
-
-      
-          
+            <img src="@Url.Content(item.ImageProduct)" height="600px"/>
         </div>
-     
-        <div>
-         
 
+        <div class="text-center">
             @Html.DisplayFor(modelItem => item.Title)
-
-            @Html.DisplayFor(modelItem => item.Details)
-
-            @Html.DisplayFor(modelItem => item.Price)
-
-            @Html.DisplayFor(modelItem => item.FitProduct.FitProductTitle)
-
-            @Html.DisplayFor(modelItem => item.Image.ImageTitle)
         </div>
-    
+        <div class="text-center">
+            @Html.DisplayFor(modelItem => item.Price)
+        </div>
+        <!-- TODO: ADD QUANTITY SELECTOR HERE AND LINK IT TO CART -->
+        @*<div class="form-group">
+                <label for="ProductQuantity" class="control-label">Quantity</label>
+                @{ var productQuantities = new SelectList(Enumerable.Range(1, 10)); }
+                @Html.DropDownList("Quantity", productQuantities, new { @class = "form-control" })
+                
 
-    
-    </div>
-   
-          
-      
-       
+            </div>*@
+
+        <!--Cart button-->
+        @*@using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                @Html.Hidden("ProductId", item.ProductId)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-success" value="Add to cart" />
+            }
+
+        *@
+    </div>     
 }
+
 
