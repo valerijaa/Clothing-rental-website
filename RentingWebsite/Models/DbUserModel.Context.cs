@@ -13,10 +13,10 @@ namespace RentingWebsite.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RentingWebsiteEntities1 : DbContext
+    public partial class RentingWebsiteEntities2 : DbContext
     {
-        public RentingWebsiteEntities1()
-            : base("name=RentingWebsiteEntities1")
+        public RentingWebsiteEntities2()
+            : base("name=RentingWebsiteEntities2")
         {
         }
     

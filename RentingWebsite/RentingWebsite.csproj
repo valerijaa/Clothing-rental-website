@@ -241,9 +241,24 @@
       <DependentUpon>CrowsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>CrowsModel.tt</DependentUpon>
+      <DependentUpon>DbUserModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataConnector.cs" />
+    <Compile Include="Models\DbUserModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUserModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbUserModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbUserModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUserModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\EventType.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
@@ -273,21 +288,6 @@
     </Compile>
     <Compile Include="Models\Type.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -368,15 +368,15 @@
       <DependentUpon>CrowsModel.edmx</DependentUpon>
       <LastGenOutput>CrowsModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\UserDbModel.Context.tt">
+    <Content Include="Models\DbUserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDbModel.edmx</DependentUpon>
-      <LastGenOutput>UserDbModel.Context.cs</LastGenOutput>
+      <DependentUpon>DbUserModel.edmx</DependentUpon>
+      <LastGenOutput>DbUserModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\UserDbModel.tt">
+    <Content Include="Models\DbUserModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDbModel.edmx</DependentUpon>
-      <LastGenOutput>UserDbModel.cs</LastGenOutput>
+      <DependentUpon>DbUserModel.edmx</DependentUpon>
+      <LastGenOutput>DbUserModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -412,12 +412,12 @@
     <Content Include="Content\Images\Shop dresses\_DS_Store" />
     <Content Include="Content\Images\Shop suits\_DS_Store" />
     <Content Include="Content\Images\Shopping cart\_DS_Store" />
-    <EntityDeploy Include="Models\UserDbModel.edmx">
+    <EntityDeploy Include="Models\DbUserModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserDbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbUserModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\UserDbModel.edmx.diagram">
-      <DependentUpon>UserDbModel.edmx</DependentUpon>
+    <Content Include="Models\DbUserModel.edmx.diagram">
+      <DependentUpon>DbUserModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\RentingWebsite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -455,6 +455,7 @@
     <Content Include="Views\Shop\Price.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Customer\AddOrEdit.cshtml" />
+    <Content Include="Views\Customer\Customer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

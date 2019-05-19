@@ -43,7 +43,7 @@
           <Property Name="PhoneNumber" Type="Int32" />
           <Property Name="CreditCard" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="RentingWebsiteEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RentingWebsiteEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customer" EntityType="Self.Customer" />
         </EntityContainer>
       </Schema>
@@ -51,7 +51,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CustomerModelStoreContainer" CdmEntityContainer="RentingWebsiteEntities1">
+        <EntityContainerMapping StorageEntityContainer="CustomerModelStoreContainer" CdmEntityContainer="RentingWebsiteEntities2">
           <EntitySetMapping Name="Customer">
             <EntityTypeMapping TypeName="CustomerModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
