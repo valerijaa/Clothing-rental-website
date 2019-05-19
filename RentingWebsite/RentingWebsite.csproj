@@ -272,6 +272,7 @@
     <Compile Include="Models\Invoice.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginCustomer.cs" />
     <Compile Include="Models\OrderItem.cs">
       <DependentUpon>CrowsModel.tt</DependentUpon>
     </Compile>
@@ -453,9 +454,11 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\Type.cshtml" />
     <Content Include="Views\Shop\Price.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Customer\AddOrEdit.cshtml" />
     <Content Include="Views\Customer\Customer.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Login\AfterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

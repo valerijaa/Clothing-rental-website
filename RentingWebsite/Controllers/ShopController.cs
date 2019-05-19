@@ -26,7 +26,7 @@ namespace RentingWebsite.Controllers
         public ActionResult Index(string Category)
         {
             var products = db.Products.Include(p => p.FitProduct)
-                                      .Include(p => p.Image);
+                                    .Include(p => p.Image);
             return View(products.ToList());
         }
 
