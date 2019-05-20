@@ -30,17 +30,28 @@ namespace RentingWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var password = "";
-                var sha256 = "";
-                password = customer.Password;
-                System.Diagnostics.Debug.WriteLine(password);
+                //var password = "";
+                var hashed = "";
+                //password = customer.Password;
+                
 
 
                 RentingWebsiteEntities2 db = new RentingWebsiteEntities2();
-                
-                //sha256 = Crypto.SHA256(password);
 
-                
+                //sha256 = Crypto.SHA256(password);
+                //var u = new Customer
+                //{
+                //    Username = customer.Username,
+                //    Password = customer.Password
+                //};
+
+                //customer.Password.ToString();
+
+               //hashed = Crypto.Hash(customer.Password, "MD5");
+
+                //System.Diagnostics.Debug.WriteLine(hashed);
+
+
                 db.Customer.Add(customer);
                 db.SaveChanges();
 
