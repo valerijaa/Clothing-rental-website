@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using RentingWebsite.Models;
 using RentingWebsite.ViewModels;
@@ -21,6 +22,23 @@ namespace RentingWebsite.Controllers
         // GET: Shop
         RentingWebsiteEntities db = new RentingWebsiteEntities();
 
+        public ActionResult Filtered([FromUri] string colors, [FromUri] string sizes, [FromUri] string types, [FromUri] string fits)
+        {
+            // values are comma separated
+            var selectedColorIds = colors.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
+            var selectedSizeIds = sizes.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
+            var selectedTypeIds = types.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
+            var selectedFitIds = fits.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
+
+            var products = db.Products.Where(product =>
+                ( selectedColorIds.Count() == 0 || product.Colors.Any(color => selectedColorIds.Contains(color.ColorId)))
+                && (selectedSizeIds.Count() == 0 || product.Sizes.Any(size => selectedSizeIds.Contains(size.SizeId)))
+                && (selectedTypeIds.Count() == 0 || product.Types.Any(type => selectedTypeIds.Contains(type.TypeId)))
+                && (selectedFitIds.Count() == 0 || (product.FitProductId.HasValue && selectedFitIds.Contains(product.FitProductId.Value) ))
+            ).ToList();
+
+            return View("Index", products);
+        }
 
         //View all products
         public ActionResult Index(string Category)
