@@ -15,7 +15,7 @@ namespace RentingWebsite.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if (Session["LoggedUser"] == null)
+            if (Session["LoggedUser"] != null)
             { return View("AfterLogin"); };
                 LoginCustomer customerModel = new LoginCustomer();
             return View(customerModel);
@@ -53,12 +53,20 @@ namespace RentingWebsite.Controllers
         {
             if (Session["LoggedUser"] != null)
             {
-                return View();
+                return RedirectToAction("Index", "Home");
+                //return View("AfterLogin");
             }
             else
             {
                 return RedirectToAction("Index");
             }
+        }
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            //return RedirectToAction("Index", "Home");
+            return View();
         }
     }
 }

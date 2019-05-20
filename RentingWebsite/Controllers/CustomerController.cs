@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using RentingWebsite.Models;
 using RentingWebsite.ViewModels;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 
 namespace RentingWebsite.Controllers
 {
@@ -29,9 +30,21 @@ namespace RentingWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
+                var password = "";
+                var sha256 = "";
+                password = customer.Password;
+                System.Diagnostics.Debug.WriteLine(password);
+
+
                 RentingWebsiteEntities2 db = new RentingWebsiteEntities2();
+                
+                //sha256 = Crypto.SHA256(password);
+
+                
                 db.Customer.Add(customer);
                 db.SaveChanges();
+
+
             }
             return View(customer);
         }
