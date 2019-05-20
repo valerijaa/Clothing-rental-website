@@ -41,7 +41,7 @@ namespace RentingWebsite.Controllers
         }
 
         //View all products
-        public ActionResult Index(string Category)
+        public ActionResult Index(/*string Category*/)
         {
             var products = db.Products.Include(p => p.FitProduct)
                                     .Include(p => p.Image);
