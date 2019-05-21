@@ -51,14 +51,15 @@
             </div>*@
 
         <!--Cart button-->
-        @*@using (Html.BeginForm("AddToCart", "Cart"))
+        @using (Html.BeginForm("Cart", "Shop"))
                     {
                 @Html.Hidden("ProductId", item.ProductId)
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                 <input type="submit" class="btn btn-success" value="Add to cart" />
             }
 
-        *@
+        
+
     </div>     
 }
 

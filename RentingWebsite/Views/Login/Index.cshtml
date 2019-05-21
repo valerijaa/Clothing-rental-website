@@ -1,5 +1,4 @@
-﻿
-@model RentingWebsite.Models.LoginCustomer
+﻿@model RentingWebsite.Models.LoginCustomer
 
 
 @{
@@ -7,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Index","Login", FormMethod.Post))
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

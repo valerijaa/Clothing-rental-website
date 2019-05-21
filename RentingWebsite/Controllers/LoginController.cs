@@ -38,7 +38,9 @@ namespace RentingWebsite.Controllers
                         if (v != null)
                         {
                             Session["LoggedUser"] = v.CustomerId;
+                            Session.Add("CustomerId", v.CustomerId);
 
+                           
                             return RedirectToAction("AfterLogin");
                         }
                         //System.Diagnostics.Debug.WriteLine(v.Username);
@@ -65,8 +67,8 @@ namespace RentingWebsite.Controllers
         public ActionResult LogOut()
         {
             Session.Clear();
-            //return RedirectToAction("Index", "Home");
-            return View();
+            return RedirectToAction("Index", "Home");
+            //return View();
         }
     }
 }
