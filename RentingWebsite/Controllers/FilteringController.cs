@@ -19,27 +19,27 @@ namespace RentingWebsite.Controllers
             //creting form containing all filtering options
             var filterform = new FilterForm()
             {
-                Types = db.EventTypes.Select(eventType => new FilterItem()
+                Types = db.Types.Select(type => new FilterItem()
                 {
-                    Id = eventType.EventId,
-                    Name = eventType.EventTitle
+                    Id = type.TypeTitle,
+                    Name = type.TypeTitle
                 }).ToList(),
 
                 Colors = db.Colors.Select(color => new FilterItem()
                 {
-                    Id = color.ColorId,
+                    Id = color.ColorId.ToString(),
                     Name = color.ColorTitle
                 }).ToList(),
 
                 Sizes = db.Sizes.Select(size => new FilterItem()
                 {
-                    Id = size.SizeId,
+                    Id = size.SizeId.ToString(),
                     Name = size.SizeTitle
                 }).ToList(),
 
                 Fits = db.FitProducts.Select(fitproduct => new FilterItem()
                 {
-                    Id = fitproduct.FitProductId,
+                    Id = fitproduct.FitProductId.ToString(),
                     Name = fitproduct.FitProductTitle
                 }).ToList()
             };

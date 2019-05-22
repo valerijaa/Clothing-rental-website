@@ -1,4 +1,4 @@
-﻿<div id="filteringcontainer">
+﻿<div id="filteringcontainer" class="filtering-container">
     @using (Html.BeginForm("Filtered", "Shop", FormMethod.Get))
     {
         @Html.Hidden("colors")
@@ -6,11 +6,24 @@
         @Html.Hidden("sizes")
         @Html.Hidden("fits")
 
-        <ul id="type-options"></ul>
-        <ul id="color-options"></ul>
-        <ul id="size-options"></ul>
-        <ul id="fit-options"></ul>
+        <div class="filtering-options">
+            @renderDropdown("Type", "type-options")
+            @renderDropdown("Color", "color-options")
+            @renderDropdown("Size", "size-options")
+            @renderDropdown("Fit", "fit-options")
+        </div> <br/>
 
-        <button type="submit">Search</button>
+        <input type="submit" class="btn btn-success vama-button" value="Quick search" />
     }
 </div>
+
+@helper renderDropdown(string title, string optionsId) { 
+<div class="dropdown square">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        @title
+        <span class="caret"></span>
+    </button>
+    <ul id="@optionsId" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    </ul>
+</div>    
+}

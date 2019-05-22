@@ -30,36 +30,40 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-sm-4">
-        <div class="products">
+<div class="col-sm-4">
+
+     <div class="products">
             <img src="@Url.Content(item.ImageProduct)" height="600px"/>
         </div>
+    
 
-        <div class="text-center">
-            @Html.DisplayFor(modelItem => item.Title)
-        </div>
-        <div class="text-center">
-            @Html.DisplayFor(modelItem => item.Price)
-        </div>
-        <!-- TODO: ADD QUANTITY SELECTOR HERE AND LINK IT TO CART -->
-        @*<div class="form-group">
-                <label for="ProductQuantity" class="control-label">Quantity</label>
-                @{ var productQuantities = new SelectList(Enumerable.Range(1, 10)); }
-                @Html.DropDownList("Quantity", productQuantities, new { @class = "form-control" })
-                
 
-            </div>*@
 
-        <!--Cart button-->
-        @*@using (Html.BeginForm("AddToCart", "Cart"))
-                    {
-                @Html.Hidden("ProductId", item.ProductId)
-                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                <input type="submit" class="btn btn-success" value="Add to cart" />
-            }
+    <div class="text-center">
+        @Html.DisplayFor(modelItem => item.Title)
+    </div>
+    <div class="text-center">
+        @Html.DisplayFor(modelItem => item.Price)
+    </div>
+    <!-- TODO: ADD QUANTITY SELECTOR HERE AND LINK IT TO CART -->
+    @*<div class="form-group">
+            <label for="ProductQuantity" class="control-label">Quantity</label>
+            @{ var productQuantities = new SelectList(Enumerable.Range(1, 10)); }
+            @Html.DropDownList("Quantity", productQuantities, new { @class = "form-control" })
 
-        *@
-    </div>     
+
+        </div>*@
+
+    <!--Cart button-->
+    @*@using (Html.BeginForm("AddToCart", "Cart"))
+                {
+            @Html.Hidden("ProductId", item.ProductId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add to cart" />
+        }
+
+    *@
+</div>     
 }
 
 

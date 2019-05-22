@@ -305,6 +305,8 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Filtering.css" />
+    <Content Include="Content\Homepage.css" />
     <Content Include="Content\Images\Banner.png" />
     <Content Include="Content\Images\Checkout\T66505002_284_lookbook2.jpg" />
     <Content Include="Content\Images\Dress1.png" />

@@ -1,0 +1,35 @@
+﻿.square {
+    border-radius: 0px;
+}
+
+.filtering-container {
+    text-align:center;
+}
+
+.filtering-container .filtering-options {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 10px;
+}
+
+.filtering-container .filtering-options .dropdown {
+    display: inline-block;
+}
+
+.filtering-container .filtering-options .dropdown .btn {
+    border-color: transparent;
+}
+
+.filtering-container .filtering-options .dropdown .dropdown-menu {
+    color: darkgray;
+    text-align: left;
+    padding:5px 10px;
+}
+
+.filtering-container .filtering-options .dropdown .dropdown-menu input {
+    margin-right: 5px;
+}
+
+.filtering-container input[type=submit] {
+    display: inline-block;
+}
