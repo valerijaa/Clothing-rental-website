@@ -41,7 +41,7 @@ namespace RentingWebsite.Controllers
         }
 
         //View all products
-        public ActionResult Index()
+        public ActionResult Index(/*string Category*/)
         {
             var products = db.Products.Include(p => p.FitProduct)
                                     .Include(p => p.Image);
@@ -89,6 +89,20 @@ namespace RentingWebsite.Controllers
 
             return View();
         }
+
+        //[HttpGet]
+        public ActionResult Cart(Cart cart)
+        {
+
+            if (ModelState.IsValid)
+            {
+                RentingWebsiteEntities2 db = new RentingWebsiteEntities2();
+               // db.Customer.Add(cart);
+                db.SaveChanges();
+            }
+            return View(cart);
+        }
+
 
     }
 

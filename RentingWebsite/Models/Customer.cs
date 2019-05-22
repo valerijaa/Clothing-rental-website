@@ -21,21 +21,22 @@ namespace RentingWebsite.Models
         public string LastName { get; set; }
 
         public List<Invoice> Invoices { get; set; }
-        [Required]
+
+        //[Required]
         public string Email { get; set; }
 
         public string Address { get; set; }
         public Nullable<int> Zip { get; set; }
 
-        [Required]
+        //[Required]
         public string Username { get; set; }
 
-        [Required]
+        //[Required]
         [Compare("Password")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
