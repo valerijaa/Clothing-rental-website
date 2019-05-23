@@ -20,17 +20,19 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-4">
-            <div class="products">
-                <img src="@Url.Content(item.ImageProduct)" class="img-responsive" />
+        var detailsUrl = Url.Action("ProductDetails", "Products", new { id = item.ProductId });
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="shop-page-product">
+                <a href="@detailsUrl">
+                    <img src="@Url.Content(item.ImageProduct)" class="img-responsive" />
+                </a>
+                <div class="text-center">
+                    <a href="@detailsUrl">@item.Title</a>
+                </div>
+                <div class="text-center">
+                    @item.Price
+                </div>
             </div>
-            <div class="text-center">
-                @Html.DisplayFor(modelItem => item.Title)
-            </div>
-            <div class="text-center">
-                @Html.DisplayFor(modelItem => item.Price)
-            </div>
-            <a href="@Url.Action("ProductDetails", "Products", new { id = item.ProductId })">Gogogog</a>
         </div>
     }
 </div>
