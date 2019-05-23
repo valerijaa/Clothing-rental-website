@@ -57,7 +57,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
                     <li>
-                        <a href="@Url.Action("Index", "Cart")">
+                        <a href="@Url.Action("Index", "Basket")">
                             @{ 
                                 var cart = (Basket)Session["Cart"];
                             }

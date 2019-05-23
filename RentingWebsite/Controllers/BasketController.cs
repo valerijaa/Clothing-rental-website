@@ -10,7 +10,7 @@ namespace RentingWebsite.Controllers
 {
     public class BasketController : Controller
     {
-        public ViewResult Index(/*Basket cart,*/ string returnUrl)
+        public ViewResult Index(string returnUrl)
         {
             return View(new CartIndexViewModel
             {
