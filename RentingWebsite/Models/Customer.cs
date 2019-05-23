@@ -23,11 +23,6 @@ namespace RentingWebsite.Models
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public List<Invoice> Invoices { get; set; }
-
-        //[Required]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
         public string Address { get; set; }
         public Nullable<int> Zip { get; set; }
@@ -35,5 +30,8 @@ namespace RentingWebsite.Models
         public string Password { get; set; }
         public Nullable<int> PhoneNumber { get; set; }
         public Nullable<int> CreditCard { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
