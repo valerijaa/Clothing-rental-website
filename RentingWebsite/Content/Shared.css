@@ -2,12 +2,6 @@
     font-family: 'Lato', sans-serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
 body > .container {
     margin-top: 50px;
 }
@@ -77,6 +71,12 @@ body > .container {
 .vama-button {
     border: none;
     background-color: #75d79d;
+    border-radius: 0;
+}
+
+.vama-gray-button {
+    border: none;
+    background-color: darkgray;
     border-radius: 0;
 }
 

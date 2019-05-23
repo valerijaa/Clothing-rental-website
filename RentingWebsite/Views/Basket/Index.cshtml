@@ -4,39 +4,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Your cart</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Item</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.Basket.Lines)
+                {
+                    <tr>
+                        <td class="text-center">@line.Quantity</td>
+                        <td class="text-left">@line.Product.Title</td>
+                        <td class="text-right">@line.Product.Price.ToString("n")</td>
+                        <td class="text-right">
+                            @((line.Quantity * line.Product.Price).ToString("n"))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total:</td>
+                    <td class="text-right">
+                        @Model.Basket.TotalPrice.ToString("n")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="text-center">
+            <a class="btn btn-success vama-gray-button" href="@Model.ReturnUrl">Continue shopping</a>
+            <a class="btn btn-success vama-button" href="@Url.Action("Index","Checkout")">Checkout</a>
+        </div>
 
-<h2>Your cart</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Quantity</th>
-            <th>Item</th>
-            <th class="text-right">Price</th>
-            <th class="text-right">Subtotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var line in Model.Basket.Lines)
-        {
-            <tr>
-                <td class="text-center">@line.Quantity</td>
-                <td class="text-left">@line.Product.Title</td>
-                <td class="text-right">@line.Product.Price.ToString("n")</td>
-                <td class="text-right">
-                    @((line.Quantity * line.Product.Price).ToString("n"))
-                </td>
-            </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Total:</td>
-            <td class="text-right">
-                @Model.Basket.TotalPrice.ToString("n")
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<div class="text-center">
-    <a class="btn btn-success vama-button" href="@Model.ReturnUrl">Continue shopping</a>
+    </div>
 </div>
