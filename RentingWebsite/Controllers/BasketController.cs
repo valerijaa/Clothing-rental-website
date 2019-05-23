@@ -28,7 +28,7 @@ namespace RentingWebsite.Controllers
             {
                 cart.AddItem(product, 1); //add one quantity of this product
             }
-            return RedirectToAction("Index", new { controller = returnUrl.Substring(1) });
+            return RedirectToAction("Index", new { returnUrl = returnUrl});
         }
         public RedirectToRouteResult RemoveFromCart(Basket cart, int productId, string returnUrl)
         {

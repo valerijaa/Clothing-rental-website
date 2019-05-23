@@ -58,7 +58,7 @@
                     <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Impact", "Index", "Impact", new { area = "" }, null)</li>
                     <li>
-                        <a href="@Url.Action("Index", "Basket")">
+                        <a href="@Url.Action("Index", "Basket", new { returnUrl = "/shop"})">
                             @{
                                 var cart = (Basket)Session["Cart"];
                             }

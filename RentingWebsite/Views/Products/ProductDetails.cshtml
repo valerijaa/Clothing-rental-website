@@ -1,5 +1,4 @@
 ﻿@using RentingWebsite.Models
-
 @model RentingWebsite.Models.Product
 
 
@@ -8,27 +7,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
-<div class="row">
-    <div class="container-fluid p-5">
+<div class="container">
+    <div class="row" style="margin-top:70px; margin-bottom:30px">
         <div class="card">
             <div class="row no-gutters">
 
                 <aside class="col-sm-5 border-right">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <img src="@Url.Content(@Model.ImageProduct)"></div>
+                            <div> <img src="@Url.Content(@Model.ImageProduct)" height="500px"></div>
                         </div> <!-- slider-product.// -->
 
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-7">
                     <article class="p-5">
-                        <h3 class="title mb-3"> @Model.Title</h3>
+                        <h3 class="title mb-3">@Model.Title</h3>
 
                         <div class="mb-3">
-                            <var class="price h3 text-warning">
-                                <span class="currency">US $</span><span class="num">  @Model.Price</span>
+                            <var class="price h3">
+                                <span class="currency">DKK</span><span class="num">@Model.Price</span>
                             </var>
                             <span>/per day</span>
                         </div> <!-- price-detail-wrap .// -->
@@ -40,18 +38,8 @@
                                 </p>
                             </dd>
                         </dl>
-                        <dl class="row">
-                            <dt class="col-sm-3">Model#</dt>
-                            <dd class="col-sm-9">    @Model.Title</dd>
 
-                            <dt class="col-sm-3">Fit</dt>
-                            <dd class="col-sm-9">    @Model.Price</dd>
-
-                            <dt class="col-sm-3">Details</dt>
-                            <dd class="col-sm-9">  @Model.Price  </dd>
-                        </dl>
                         @*<div class="rating-wrap">
-
             <ul class="rating-stars">
                 <li style="width:80%" class="stars-active">
                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
@@ -102,19 +90,21 @@
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
                         <hr>
-                        <!--Cart button-->
+
                         @using (Html.BeginForm("AddToCart", "Basket"))
                         {
                             @Html.Hidden("productId", Model.ProductId)
-                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                            <button type="submit" class="btn btn-success">
+                            @Html.Hidden("returnUrl", Request.Url.AbsoluteUri)
+                            <button type="submit" class="btn btn-success vama-button">
                                 <i class="fas fa-shopping-cart"></i> Add to cart
                             </button>
                         }
-                    </article> <!-- card-body.// -->
-                </aside> <!-- col.// -->
 
-            </div> <!-- row.// -->
-        </div> <!-- card.// -->
-    </div> <!--container-->
-</div> <!--row container-->
+</div>
+            </article> <!-- card-body.// -->
+            </aside> <!-- col.// -->
+
+        </div> <!-- row.// -->
+    </div> <!-- card.// -->
+</div> <!--container-->
+</div>
