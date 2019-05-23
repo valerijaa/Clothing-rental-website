@@ -1,11 +1,21 @@
-﻿
-
-.specialjum {
-background: url('/Content/Images/Banner.png') center;
-color:#fff;
-background-size: cover; 
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+    background-color: #ffffff;
+    margin-top: 40px;
 }
-
+.specialjum {
+    background: url('/Content/Images/Banner.png') center;
+    color: #fff;
+    background-size: cover;
+}
+ul.nav.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
 .inner{
     max-width: 100%;
     width: 90%;
@@ -18,10 +28,8 @@ background-size: cover;
   height: 258px;
 }
 
-.card {
-  padding-right: 10px;
-  text-align: center;
-  font-family:Roboto;
+aside.col-sm-5.border-right {
+    text-align: center;
 }
 
 a {

@@ -7,19 +7,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<ul>
-    @foreach (var item in Model)
-    {
-        @*<li>@Html.ActionLink(@item.Title, "Price", "Shop", new object { category = @item.Category, null })</li>*@
-    @*<li>@Html.ActionLink(@item.Title, "Price", "Shop", new object { category = @item.Category, null })</li>*@
-}
-</ul>
 
-<h2>Index</h2>
-<p>@Html.ActionLink("Menu", "Nav")</p>
-<p>@Html.ActionLink("All", "Index")</p>
-<p>@Html.ActionLink("Price", "Price")</p>
-<p>@Html.ActionLink("Type", "Type")</p>
 
 <!--View Cart button-->
 @*@using (Html.BeginForm("Index", "Cart"))
@@ -28,38 +16,69 @@
     <input type="submit" class="btn btn-success" value="View Cart" />
 }*@
 
-@foreach (var item in Model)
-{
-    <div class="col-sm-4">
-        <div class="products">
-            <img src="@Url.Content(item.ImageProduct)" height="600px"/>
-        </div>
+@*Dropdown menu navigation*@ 
 
-        <div class="text-center">
-            @Html.DisplayFor(modelItem => item.Title)
-        </div>
-        <div class="text-center">
-            @Html.DisplayFor(modelItem => item.Price)
-        </div>
-        <!-- TODO: ADD QUANTITY SELECTOR HERE AND LINK IT TO CART -->
-        @*<div class="form-group">
-                <label for="ProductQuantity" class="control-label">Quantity</label>
-                @{ var productQuantities = new SelectList(Enumerable.Range(1, 10)); }
-                @Html.DropDownList("Quantity", productQuantities, new { @class = "form-control" })
-                
+    <div class="row">
+        <nav class="navbar" role="navigation">
+      
+                <ul class="nav navbar-nav navbar-center">
 
-            </div>*@
+                    <li class="active"><a href="@Url.Action("Index", "Shop")">All</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Type  <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Dress", "Shop")">Dress</a></li>
+                            <li><a href="@Url.Action("Dress", "Shop")">Dress</a></li>
+                        </ul>
+                    </li>
 
-        <!--Cart button-->
-        @*@using (Html.BeginForm("AddToCart", "Cart"))
-                    {
-                @Html.Hidden("ProductId", item.ProductId)
-                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                <input type="submit" class="btn btn-success" value="Add to cart" />
-            }
+                </ul>
 
-        *@
-    </div>     
-}
+        </nav>
+    </div>
+   
+            @*Displaying the products*@
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-4">
+                        <div class="products">
+                            <a href="@Url.Action("ProductDetails", "Shop", new { id = item.ProductId })"><img src="@Url.Content(item.ImageProduct)" height="600px" /></a>
+                            @*<a href="@Url.Action("GetProduct", "Shop")"><img src="@Url.Content(item.ImageProduct)" height="600px" /></a>*@
+                        </div>
+
+                        <div class="text-center">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+                        <div class="text-center">
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </div>
+                        <!-- TODO: ADD QUANTITY SELECTOR HERE AND LINK IT TO CART -->
+                        @*<div class="form-group">
+                            <label for="ProductQuantity" class="control-label">Quantity</label>
+                            @{ var productQuantities = new SelectList(Enumerable.Range(1, 10)); }
+                            @Html.DropDownList("Quantity", productQuantities, new { @class = "form-control" })
 
 
+                        </div>*@
+
+                        <!--Cart button-->
+                        @*@using (Html.BeginForm("AddToCart", "Cart"))
+                                {
+                            @Html.Hidden("ProductId", item.ProductId)
+                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            <input type="submit" class="btn btn-success" value="Add to cart" />
+                        }
+
+                        *@
+                    </div>
+                }
+
+            </div>
+
+
+
+            <script type="text/javascript">
+                $('.dropdown-toggle').dropdown()
+            </script>
