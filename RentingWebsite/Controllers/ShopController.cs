@@ -27,13 +27,13 @@ namespace RentingWebsite.Controllers
             // values are comma separated
             var selectedColorIds = colors.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
             var selectedSizeIds = sizes.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
-            var selectedTypeIds = types.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
+            var selectedTypeTitles = types.Split(',').Where(w => !String.IsNullOrWhiteSpace(w));
             var selectedFitIds = fits.Split(',').Where(w => !String.IsNullOrWhiteSpace(w)).Select(int.Parse);
 
             var products = db.Products.Where(product =>
                 ( selectedColorIds.Count() == 0 || product.Colors.Any(color => selectedColorIds.Contains(color.ColorId)))
                 && (selectedSizeIds.Count() == 0 || product.Sizes.Any(size => selectedSizeIds.Contains(size.SizeId)))
-                && (selectedTypeIds.Count() == 0 || product.Types.Any(type => selectedTypeIds.Contains(type.TypeId)))
+                && (selectedTypeTitles.Count() == 0 || selectedTypeTitles.Contains(product.Category))
                 && (selectedFitIds.Count() == 0 || (product.FitProductId.HasValue && selectedFitIds.Contains(product.FitProductId.Value) ))
             ).ToList();
 

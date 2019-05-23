@@ -1,0 +1,175 @@
+﻿/*shared*/
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar.navbar-inverse {
+    background-color:transparent !important;
+    border-bottom:none;
+}
+
+.navbar.navbar-inverse .navbar-brand {
+    color:#fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-fixed-top.scrolled {
+    background-color: #fff !important;
+    transition: background-color 200ms linear;
+}
+
+.navbar.navbar-inverse.scrolled .navbar-brand {
+    color: dimgray;
+}
+
+.navbar.navbar-inverse.scrolled .navbar-nav > li > a {
+    color: dimgray;
+}
+
+.vama-button {
+    border: none;
+    background-color: #75d79d;
+    border-radius: 0;
+}
+
+/*section shared */
+
+.section {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.section h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.section h3.subheading {
+    color: dimgray;
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+.section p {
+    font-size: 18px;
+    color: dimgray;
+}
+
+/*jumbotron*/
+
+.centered-text {
+    text-align: center;
+}
+
+.jumbotron .content {
+    padding: 40px 0px;
+}
+
+.jumbotron h1 {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+/*informational section*/
+
+.informational-section {
+    padding-top: 20px;
+}
+
+.informational-section .information-widget .number {
+    font-weight: 600;
+    font-size: 100px;
+    color: #75d79d;
+}
+
+.informational-section .information-widget h3 {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/*rent now section*/
+
+.rent-now-section .rent-now-widget {
+    position: relative;
+}
+
+.rent-now-section .rent-now-widget img {
+    margin: 0 auto;
+}
+
+.rent-now-section .rent-now-widget .action-overlay {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+
+.rent-now-section .rent-now-widget .action-overlay span {
+    display: block;
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000;
+}
+
+.rent-now-section .rent-now-widget .action-overlay a {
+    display: inline-block;
+    background-color: #75d79d;
+    text-transform: uppercase;
+    border: none;
+}
+
+/* testemonials */
+
+.testemonial-widget img {
+    float: left;
+    padding: 0 10px 10px 0;
+    max-width: 230px;
+}
+
+.testemonial-widget p {
+    font-size:20px;
+}
+
+.testemonial-widget .quotes {
+    color: #75d79d;
+    line-height: 80px;
+    font-size: 120px;
+    font-style: italic;
+    display: block;
+    margin-bottom: -40px;
+}
+
+.testemonials-section .col-testemonial {
+    margin-top:30px;
+}
+
+/*footer*/
+
+footer {
+    background-color: #75d79d;
+    color: white;
+    padding: 30px 0px;
+}
+
+footer h4 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer ul li {
+    list-style-type: none;
+}
