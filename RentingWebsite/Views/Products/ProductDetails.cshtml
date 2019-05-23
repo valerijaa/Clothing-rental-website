@@ -52,21 +52,21 @@
                         </dl>
                         @*<div class="rating-wrap">
 
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <div class="label-rating">132 reviews</div>
-                                <div class="label-rating">154 orders </div>
-                            </div>*@ <!-- rating-wrap.// -->
+            <ul class="rating-stars">
+                <li style="width:80%" class="stars-active">
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </li>
+                <li>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </li>
+            </ul>
+            <div class="label-rating">132 reviews</div>
+            <div class="label-rating">154 orders </div>
+        </div>*@ <!-- rating-wrap.// -->
                         <hr>
                         <div class="row">
                             <div class="col-sm-5">
@@ -102,7 +102,15 @@
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
                         <hr>
-                        <a href="#" class="btn  btn-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                        <!--Cart button-->
+                        @using (Html.BeginForm("AddToCart", "Basket"))
+                        {
+                            @Html.Hidden("productId", Model.ProductId)
+                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-shopping-cart"></i> Add to cart
+                            </button>
+                        }
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
 

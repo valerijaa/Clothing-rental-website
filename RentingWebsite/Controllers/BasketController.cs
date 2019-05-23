@@ -19,14 +19,14 @@ namespace RentingWebsite.Controllers
             });
 
         }
-        public RedirectToRouteResult AddToCart(Basket cart, int productId, string returnUrl)
+        public RedirectToRouteResult AddToCart(int productId, string returnUrl)
         {
-            RentingWebsiteEntities db = new RentingWebsiteEntities(); 
+            RentingWebsiteEntities db = new RentingWebsiteEntities();
+            var cart = GetCart();
             var product = db.Products.FirstOrDefault(p => p.ProductId == productId);
             if (product != null)
             {
-                cart.AddItem(product, 1); //add one quantity of this product}
-
+                cart.AddItem(product, 1); //add one quantity of this product
             }
             return RedirectToAction("Index", new { controller = returnUrl.Substring(1) });
         }

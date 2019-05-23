@@ -56,7 +56,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
-                    <li><a href="@Url.Action("Index", "Cart")"><i class="fas fa-shopping-bag"></i></a></li>
+                    <li>
+                        <a href="@Url.Action("Index", "Cart")">
+                            @{ 
+                                var cart = (Basket)Session["Cart"];
+                            }
+                            @if (cart != null && cart.Lines != null) {
+                                <span class="badge">@cart.Lines.Count</span>
+                            }
+                            <i class="fas fa-shopping-bag"></i>
+                        </a>
+                    </li>
                     <li>
                         <button type="button" class="btn btn-success vama-button navbar-btn"
                                 onclick="location.href = '@Url.Action(FileName, FolderName)';">@ViewName</button>
