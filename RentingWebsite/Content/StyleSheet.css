@@ -36,4 +36,17 @@ img.products {
     padding:10px;
     height: 300px;
 }
-    
+
+.impactTitles {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+p {
+    color: #999999;
+}
+
+strong {
+    color: #333333;
+    opacity: 0.75;
+}

@@ -211,6 +211,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FilteringController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImpactController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -461,6 +462,7 @@
     <Content Include="Views\Customer\AddOrEdit.cshtml" />
     <Content Include="Views\Customer\Customer.cshtml" />
     <Content Include="Views\Filtering\Form.cshtml" />
+    <Content Include="Views\Impact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
