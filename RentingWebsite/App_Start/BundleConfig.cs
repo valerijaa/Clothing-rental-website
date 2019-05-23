@@ -22,15 +22,12 @@ namespace RentingWebsite
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/jquey-3.0.0.js",
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/").Include(
+            bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/StyleSheet.css"));
+                      "~/Content/site.css"));
         }
     }
 }

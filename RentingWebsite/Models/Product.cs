@@ -35,6 +35,14 @@ namespace RentingWebsite.Models
         public string Color { get; set; }
         public string Size { get; set; }
         public string Category { get; set; }
+
+          //constructors
+        
+        public Product(string title, decimal price)
+        {
+            this.Title = title;
+            this.Price = price;
+        }
     
         public virtual FitProduct FitProduct { get; set; }
         public virtual Image Image { get; set; }
@@ -48,5 +56,8 @@ namespace RentingWebsite.Models
         public virtual ICollection<Size> Sizes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Type> Types { get; set; }
+
+
+
     }
 }

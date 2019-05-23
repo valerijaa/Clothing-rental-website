@@ -64,7 +64,6 @@ warning 6002: The table/view 'RentingWebsite.dbo.Article' does not have a primar
           <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImageTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="ImageURL" Type="image" />
-          <Property Name="ImagePath" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Invoices">
           <Key>
@@ -449,7 +448,6 @@ warning 6002: The table/view 'RentingWebsite.dbo.Article' does not have a primar
           <Property Name="ImageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImageURL" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK__Product__ImageId__5BE2A6F2" FromRole="Image" ToRole="Product" />
-          <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -714,7 +712,6 @@ warning 6002: The table/view 'RentingWebsite.dbo.Article' does not have a primar
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="RentingWebsiteModel.Image">
               <MappingFragment StoreEntitySet="Image">
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="ImageId" ColumnName="ImageId" />
                 <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
                 <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
