@@ -1,4 +1,9 @@
-﻿<div id="filteringcontainer" class="filtering-container">
+﻿@model string
+@{ 
+    // quicksearch or default
+}
+
+<div id="filteringcontainer" class="filtering-container vama-filtering-@Model">
     @using (Html.BeginForm("Filtered", "Shop", FormMethod.Get))
     {
         @Html.Hidden("colors")
@@ -11,9 +16,12 @@
             @renderDropdown("Color", "color-options")
             @renderDropdown("Size", "size-options")
             @renderDropdown("Fit", "fit-options")
-        </div> <br/>
+        </div> <br />
 
-        <input type="submit" class="btn btn-success vama-button" value="Quick search" />
+        if (Model == "quicksearch")
+        {
+            <input type="submit" class="btn btn-success vama-button" value="Quick search" />
+        }
     }
 </div>
 

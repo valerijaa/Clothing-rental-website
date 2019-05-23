@@ -2,19 +2,24 @@
     font-family: 'Lato', sans-serif;
 }
 
-.navbar.navbar-inverse {
+body > .container {
+    margin-top: 50px;
+}
+
+/*navigation*/
+
+.navbar {
     background-color: transparent !important;
     border-bottom: none;
 }
 
-.navbar.navbar-inverse .navbar-brand {
-    color: #fff;
+.navbar .navbar-brand {
     font-weight: bold;
     font-size: 20px;
 }
 
-.navbar.navbar-inverse .navbar-nav > li > a {
-    color: #fff;
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent !important;
 }
 
 .navbar-fixed-top.scrolled {
@@ -22,19 +27,50 @@
     transition: background-color 200ms linear;
 }
 
-.navbar.navbar-inverse.scrolled .navbar-brand {
+/*navigation default (dark text)*/
+
+.vama-navigation.navbar .navbar-brand {
+    color: #000;
+}
+
+.vama-navigation.navbar .navbar-nav > li > a {
+    color: #000;
+}
+
+.vama-navigation.navbar.scrolled .navbar-brand {
+    color: #000;
+}
+
+.vama-navigation.navbar.scrolled .navbar-nav > li > a {
+    color: #000;
+}
+
+/*navigation inversed (light text)*/
+
+.vama-navigation-inversed.navbar .navbar-nav > li > a {
+    color: #fff;
+}
+
+.vama-navigation-inversed.navbar .navbar-brand {
+    color: #fff;
+}
+.vama-navigation-inversed.navbar.scrolled .navbar-brand {
     color: dimgray;
 }
 
-.navbar.navbar-inverse.scrolled .navbar-nav > li > a {
+.vama-navigation-inversed.navbar.scrolled .navbar-nav > li > a {
     color: dimgray;
 }
+
+/*buttons*/
 
 .vama-button {
     border: none;
     background-color: #75d79d;
     border-radius: 0;
 }
+
+/*helpers*/ 
 
 .centered-text {
     text-align: center;

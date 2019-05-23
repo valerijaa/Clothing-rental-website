@@ -1,26 +1,28 @@
-﻿@using RentingWebsite.Models
-
-@model IEnumerable<RentingWebsite.Models.Product>
-
-
+﻿@model IEnumerable<RentingWebsite.Models.Product>
+@using RentingWebsite.Models
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!--View Cart button-->
 @*@using (Html.BeginForm("Index", "Cart"))
-{
-    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-    <input type="submit" class="btn btn-success" value="View Cart" />
-}*@
+    {
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" class="btn btn-success" value="View Cart" />
+    }*@
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("~/Views/Filtering/Form.cshtml", "default")
+    </div>
+</div>
 
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-sm-4">
             <div class="products">
-                <img src="@Url.Content(item.ImageProduct)" class="img-responsive"/>
+                <img src="@Url.Content(item.ImageProduct)" class="img-responsive" />
             </div>
             <div class="text-center">
                 @Html.DisplayFor(modelItem => item.Title)
@@ -28,9 +30,12 @@
             <div class="text-center">
                 @Html.DisplayFor(modelItem => item.Price)
             </div>
-            <a href="@Url.Action("Details", "Products", new { id = item.ProductId })" >Gogogog</a>
+            <a href="@Url.Action("ProductDetails", "Products", new { id = item.ProductId })">Gogogog</a>
         </div>
     }
 </div>
-
+@section scripts
+{
+    <script src="~/Scripts/FilteringForm.js"></script>
+}
 

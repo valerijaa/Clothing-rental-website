@@ -477,6 +477,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shop\Cart.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
+    <Content Include="Views\Products\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

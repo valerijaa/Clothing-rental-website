@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Index";
+    ViewBag.InvertedNavigation = true;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,7 +14,7 @@
                         Simple, fast and trustworthy
                     </h1>
                     <div>
-                        @Html.Partial("~/Views/Filtering/Form.cshtml")
+                        @Html.Partial("~/Views/Filtering/Form.cshtml", "quicksearch")
                     </div>
                 </div>
             </div>

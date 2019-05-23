@@ -30,6 +30,9 @@
 
     $(document).on("click", '#filteringcontainer .dropdown-menu li', function (event) {
         event.stopPropagation();
+        if ($('#filteringcontainer').hasClass('vama-filtering-default')) {
+            $("#filteringcontainer form").submit();
+        }
     });
 
     function getIdsOfSelectedCheckboxesInList(listElement) {
