@@ -367,8 +367,6 @@
     <Content Include="Content\Images\T66519001_2M5_suit.jpg" />
     <Content Include="Content\Images\T66519001_M04_lookbook2.jpg" />
     <Content Include="Content\Images\T66543001_284_suit.jpg" />
-    <Content Include="Content\responsive.css" />
-    <Content Include="Content\Shop.css" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
