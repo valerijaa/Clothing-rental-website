@@ -13,7 +13,8 @@
 }
 
 .filtering-container .filtering-options .dropdown {
-    display: inline-block;
+     display: inline-block;
+     padding: 5px 15px;
 }
 
 .filtering-container .filtering-options .dropdown .btn {
