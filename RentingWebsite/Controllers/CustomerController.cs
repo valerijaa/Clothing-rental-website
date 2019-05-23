@@ -31,7 +31,7 @@ namespace RentingWebsite.Controllers
             if (ModelState.IsValid)
             {
                 //var password = "";
-                var hashed = "";
+                //var hashed = "";
                 //password = customer.Password;
                 
 
@@ -57,7 +57,7 @@ namespace RentingWebsite.Controllers
 
 
             }
-            return View(customer);
+            return RedirectToAction("Index", "Login");
         }
         //    public ActionResult AddOrEdit(Customer customer)
         //    {

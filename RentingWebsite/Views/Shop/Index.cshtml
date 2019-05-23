@@ -51,7 +51,7 @@
             </div>*@
 
         <!--Cart button-->
-        @using (Html.BeginForm("Cart", "Shop"))
+        @using (Html.BeginForm("Index", "Basket"))
                     {
                 @Html.Hidden("ProductId", item.ProductId)
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
