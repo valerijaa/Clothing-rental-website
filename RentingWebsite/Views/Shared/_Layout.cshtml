@@ -39,7 +39,7 @@
         }
     }
 
-    @{ 
+    @{
         var invertedNavigationColors = ViewBag.InvertedNavigation == true;
     }
     <div class="navbar @(invertedNavigationColors == true ? "vama-navigation-inversed" : "vama-navigation") navbar-fixed-top">
@@ -56,12 +56,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Impact", "Index", "Impact", new { area = "" }, null)</li>
                     <li>
                         <a href="@Url.Action("Index", "Basket")">
-                            @{ 
+                            @{
                                 var cart = (Basket)Session["Cart"];
                             }
-                            @if (cart != null && cart.Lines != null) {
+                            @if (cart != null && cart.Lines != null)
+                            {
                                 <span class="badge">@cart.Lines.Count</span>
                             }
                             <i class="fas fa-shopping-bag"></i>
@@ -69,7 +71,9 @@
                     </li>
                     <li>
                         <button type="button" class="btn btn-success vama-button navbar-btn"
-                                onclick="location.href = '@Url.Action(FileName, FolderName)';">@ViewName</button>
+                                onclick="location.href = '@Url.Action(FileName, FolderName)';">
+                            @ViewName
+                        </button>
                     </li>
                     @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
                 </ul>
@@ -115,5 +119,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/site.js"></script>
 </body>
 </html>

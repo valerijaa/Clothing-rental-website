@@ -37,6 +37,10 @@ body > .container {
     color: #000;
 }
 
+.vama-navigation.navbar.scrolled {
+    background-color: #fff !important;
+}
+
 .vama-navigation.navbar.scrolled .navbar-brand {
     color: #000;
 }

@@ -1,10 +1,5 @@
 ﻿$(function () {
 
-    $(document).scroll(function () {
-        var $nav = $(".navbar-fixed-top");
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-    });
-
     $.getJSON("/Filtering/FilteringForm", function (Filteringform) {
         addFilteringItemToList($('#filteringcontainer ul#color-options'), Filteringform.Colors);
         addFilteringItemToList($('#filteringcontainer ul#type-options'), Filteringform.Types);
